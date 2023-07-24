@@ -1,10 +1,9 @@
 //
 // Created by jeong on 2023-07-16.
 //
-
+#include <memory>
 #include "gtest/gtest.h"
-#include "ImageProject
-
+#include "image_projector.hpp"
 /**
  * 1. ImageProjector는 class 형태여야한다.
  * 2. Input값은 항상 3D point's location(x, y, z), Extrinsic matrix, Intrinsic matrix이다.
@@ -16,8 +15,20 @@
  *
  */
 
-TEST(Test_Name_Major, Test_Name_Minor)
-{
-  constexpr bool evaluation = ture;
-  EXPECT_EQ(evaluation, true);
+TEST(Image_Projector, constructor) {
+
+	LandmarkPosition point3D = {1.0, 0.0, 0.0};
+	IntrinsicMatrix intrinsic = {1.0, 1.0, 320.0, 240.0};
+	ExtrinsicMatrix extrinsic = {Eigen::Matrix3d::Identity(), Eigen::Vector3d{0.0, 0.0, 0.0}};
+
+	// class
+//	const auto projector = std::make_shared<ImageProjector>(point3D, intrinsic, extrinsic);
+//	EXPECT_NE(projector, nullptr);
+
+	constexpr ProjectedPoints uv = {1.0, 1.0};
+
+	const auto projected_point = project_points(point3D, intrinsic, extrinsic);
+	EXPECT_EQ(projected_point.u, uv.u);
+	EXPECT_EQ(projected_point.v, uv.v);
+
 }

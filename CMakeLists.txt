@@ -67,7 +67,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_subdirectory(modules/module1)
+#add_subdirectory(modules/module1)
+add_subdirectory(modules/ImageProjector)
 
 #----------------------------------------
 # Executables
@@ -75,10 +76,14 @@ add_subdirectory(modules/module1)
 
 add_executable(example1
         examples/example1.cpp
+        modules/ImageProjector/test/image_projector.cpp
+        modules/ImageProjector/test/main.cpp
         )
 target_include_directories(example1 PRIVATE
         ${MODULE1_INCLUDE_PATH}
+        ${ImageProjector_INCLUDE_PATH}
         )
 target_link_libraries(example1 PRIVATE
         module1
+        ImageProject
         )

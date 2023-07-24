@@ -12,11 +12,12 @@ set(PACKAGE_NAME ImageProjector)
 project(${PACKAGE_NAME} LANGUAGES CXX)
 
 # Export aliases
+message(${CMAKE_CURRENT_SOURCE_DIR})
 set(ImageProjector_PATH ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH "ImageProject_PATH")
 set(ImageProjector_INCLUDE_PATH
         "${ImageProjector_PATH}/include" CACHE PATH "ImageProjector_INCLUDE_PATH")
 set(ImageProjector_RESOURCES_PATH
-        "${ImageProjector_PATH}/resources" CACHE PATH "ImageProjector_RESOURCES_PATH")
+        "${ImageProjector_PATH}/src" CACHE PATH "ImageProjector_RESOURCES_PATH")
 set(ImageProjector_TEST_PATH
         "${ImageProjector_PATH}/test" CACHE PATH "ImageProjector_TEST_PATH")
 
@@ -26,7 +27,7 @@ add_definitions(-DImageProjector_RESOURCES_DIR="${ImageProjector_RESOURCES_PATH}
 
 # Source files
 set(ImageProjector_SOURCE_FILES
-        src/ImageProjector.cpp
+        src/image_projector.cpp
         )
 add_library(${PACKAGE_NAME}
         ${ImageProjector_SOURCE_FILES}

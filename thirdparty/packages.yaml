@@ -12,12 +12,12 @@ apt_packages:
   JSON: true
 build_packages:
   Pangolin:
-    version_num: 0.6
+    version_num: 0.8
     cmake_flags:
       debug : ""
       release : ""
   Eigen3: 
-    version_num: 3.3.9
+    version_num: 3.3.2
     cmake_flags:
       debug : ""
       release :
@@ -27,7 +27,7 @@ build_packages:
     cmake_flags:
       debug: ""
       release:
-        - "-DCMAKE_CXX_FLAGS=\"-Ofast\""
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\" -DBUILD_OPENJPEG:BOOL=ON"
   Ceres: 
     version_num: 1.14.0
     cmake_flags: 

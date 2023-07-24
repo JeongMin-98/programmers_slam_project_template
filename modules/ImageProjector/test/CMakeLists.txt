@@ -1,6 +1,7 @@
+project(test)
 # Test sources
 set(ImageProjector_TEST_SRCS
-        sample1
+        image_projector
         )
 
 # Include

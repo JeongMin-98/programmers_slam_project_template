@@ -146,10 +146,10 @@ def install_build_packages(enable_debug):
         install_cereal(cfg.cereal, enable_debug)
     if cfg.spdlog != "":
         install_spdlog(cfg.spdlog, enable_debug)
-    if cfg.pangolin != "":
-        install_pangolin(cfg.pangolin, enable_debug)
     if cfg.eigen != "":
         install_eigen(cfg.eigen, enable_debug)
+    if cfg.pangolin != "":
+        install_pangolin(cfg.pangolin, enable_debug)
     if cfg.opencv != "":
         install_opencv(cfg.opencv, enable_debug)
     if cfg.ceres != "":
